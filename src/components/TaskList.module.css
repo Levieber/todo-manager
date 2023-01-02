@@ -54,6 +54,18 @@
   gap: 0.5rem;
 }
 
+.taskInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.emptyList {
+  font-size: 1.25rem;
+  color: var(--gray-500);
+}
+
 .taskContainer ul {
   list-style-type: none;
 

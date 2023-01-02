@@ -60,6 +60,8 @@ export function TaskList() {
 
   const isTaskTitleEmpty = taskTitle.trim() === "";
 
+  const remainingTasks = tasks.filter((task) => !task.done).length;
+
   return (
     <main className={styles.container}>
       <form onSubmit={handleSaveTask} className={styles.taskForm}>
@@ -77,18 +79,25 @@ export function TaskList() {
         </button>
       </form>
       <section className={styles.taskContainer}>
-        <h2>Minhas tarefas:</h2>
-        <ul>
-          {tasks.map((task) => (
-            <Task
-              key={task.id}
-              onDeleteTask={handleDeleteTask}
-              onToggleDoneTask={handleToggleDoneTask}
-              onEditTask={handleEditTask}
-              {...task}
-            />
-          ))}
-        </ul>
+        <div className={styles.taskInfo}>
+          <h2>Minhas tarefas:</h2>
+          <span>Tarefas restantes: {remainingTasks}</span>
+        </div>
+        {tasks.length === 0 ? (
+          <strong className={styles.emptyList}>Nenhuma tarefa cadastrada no momento!</strong>
+        ) : (
+          <ul>
+            {tasks.map((task) => (
+              <Task
+                key={task.id}
+                onDeleteTask={handleDeleteTask}
+                onToggleDoneTask={handleToggleDoneTask}
+                onEditTask={handleEditTask}
+                {...task}
+              />
+            ))}
+          </ul>
+        )}
       </section>
     </main>
   );
