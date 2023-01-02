@@ -1,9 +1,9 @@
 .task {
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 
   padding: 1rem 1.5rem;
 
@@ -27,17 +27,20 @@
   gap: 0.5rem;
 }
 
+.taskTitleAndCheck {
+  padding: 0.5rem 0;
+  width: auto;
+  overflow-x: scroll;
+}
+
 .taskTitleAndCheck label {
-  font-size: 1.5rem;
-
-  text-transform: uppercase;
-
+  font-size: 1.25rem;
   font-weight: bold;
 }
 
 .taskTitleAndCheck input[type="checkbox"] {
+  flex-shrink: 0;
   width: 1.25rem;
-
   height: 1.25rem;
 }
 
