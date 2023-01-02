@@ -1,5 +1,5 @@
-import { useState } from "react";
 import styles from "./TaskList.module.css";
+import { useState } from "react";
 
 export function TaskList() {
   const [taskTitle, setTaskTitle] = useState("");
@@ -16,17 +16,31 @@ export function TaskList() {
     setTaskTitle("");
   };
 
+  const handleTaskTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.target.setCustomValidity("");
+    setTaskTitle(event.target.value);
+  };
+
+  const handleInvalidTitle = (event: React.InvalidEvent<HTMLInputElement>) =>
+    event.target.setCustomValidity("O título da tarefa não pode estar vazio!");
+
+  const isTaskTitleEmpty = taskTitle.trim() === "";
+
   return (
     <main className={styles.container}>
       <form onSubmit={handleCreateTask} className={styles.taskForm}>
         <input
           value={taskTitle}
-          onChange={(ev) => setTaskTitle(ev.target.value)}
+          onChange={handleTaskTitleChange}
+          onInvalid={handleInvalidTitle}
+          required
           id="task"
           type="text"
           placeholder="Digite uma tarefa. Ex: estudar React"
         />
-        <button type="submit">Salvar</button>
+        <button disabled={isTaskTitleEmpty} type="submit">
+          Salvar
+        </button>
       </form>
     </main>
   );

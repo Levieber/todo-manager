@@ -33,6 +33,11 @@
   cursor: pointer;
 }
 
-.taskForm button[type="submit"]:hover {
+.taskForm button[type="submit"]:disabled {
+  background-color: var(--gray-700);
+  cursor: not-allowed;
+}
+
+.taskForm button[type="submit"]:not(:disabled):hover {
   background-color: var(--blue-500);
 }
