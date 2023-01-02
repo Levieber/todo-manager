@@ -41,3 +41,27 @@
 .taskForm button[type="submit"]:not(:disabled):hover {
   background-color: var(--blue-500);
 }
+
+.taskContainer {
+  margin-top: 1rem;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
+.taskContainer ul {
+  list-style-type: none;
+
+  width: min(100%, 70rem);
+
+  display: flex;
+
+  gap: 0.5rem;
+
+  flex-direction: column;
+}

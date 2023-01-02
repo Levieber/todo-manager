@@ -1,0 +1,79 @@
+.task {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 1rem 1.5rem;
+
+  border-radius: 8px;
+
+  background-color: var(--gray-800);
+
+  transition: 0.3s ease-in-out;
+}
+
+.task:hover {
+  background-color: var(--gray-700);
+}
+
+.taskTitleAndCheck,
+.taskEditOrDelete {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.taskTitleAndCheck label {
+  font-size: 1.5rem;
+
+  text-transform: uppercase;
+
+  font-weight: bold;
+}
+
+.taskTitleAndCheck input[type="checkbox"] {
+  width: 1.25rem;
+
+  height: 1.25rem;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+.taskEditOrDelete button {
+  background-color: transparent;
+
+  border: 0;
+
+  line-height: 0;
+
+  cursor: pointer;
+}
+
+.taskEditOrDelete button:focus {
+  border-radius: 2px;
+}
+
+.editTaskBtn,
+.deleteTaskBtn {
+  color: var(--gray-300);
+}
+
+.editTaskBtn:hover {
+  color: var(--blue-500);
+}
+
+.deleteTaskBtn:hover {
+  color: var(--red-500);
+}
+
+.editTaskBtn:disabled {
+  cursor: not-allowed;
+
+  color: var(--gray-500);
+}
