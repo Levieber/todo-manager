@@ -6,9 +6,20 @@ import { TaskAttr } from "../types/global";
 export function TaskList() {
   const [taskTitle, setTaskTitle] = useState("");
   const [tasks, setTasks] = useState<TaskAttr[]>([]);
+  const [taskEditId, setTaskEditId] = useState<number | null>(null);
 
-  const handleCreateTask = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSaveTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    if (taskEditId) {
+      const newTasks = tasks.map((task) => (task.id === taskEditId ? { ...task, title: taskTitle } : task));
+
+      setTasks(newTasks);
+      setTaskEditId(null);
+      setTaskTitle("");
+      return;
+    }
+
     const newTask = {
       id: new Date().getTime(),
       title: taskTitle,
@@ -38,11 +49,20 @@ export function TaskList() {
     setTasks(tasksWithoutDeleteOne);
   };
 
+  const handleEditTask = (id: number) => {
+    const taskToEdit = tasks.find((task) => task.id === id);
+
+    if (taskToEdit) {
+      setTaskTitle(taskToEdit.title);
+      setTaskEditId(taskToEdit.id);
+    }
+  };
+
   const isTaskTitleEmpty = taskTitle.trim() === "";
 
   return (
     <main className={styles.container}>
-      <form onSubmit={handleCreateTask} className={styles.taskForm}>
+      <form onSubmit={handleSaveTask} className={styles.taskForm}>
         <input
           value={taskTitle}
           onChange={handleTaskTitleChange}
@@ -64,6 +84,7 @@ export function TaskList() {
               key={task.id}
               onDeleteTask={handleDeleteTask}
               onToggleDoneTask={handleToggleDoneTask}
+              onEditTask={handleEditTask}
               {...task}
             />
           ))}
