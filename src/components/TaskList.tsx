@@ -32,6 +32,12 @@ export function TaskList() {
     setTasks(newTasks);
   };
 
+  const handleDeleteTask = (id: number) => {
+    const newTasks = tasks.filter((task) => task.id !== id);
+
+    setTasks(newTasks);
+  };
+
   const isTaskTitleEmpty = taskTitle.trim() === "";
 
   return (
@@ -54,7 +60,12 @@ export function TaskList() {
         <h2>Minhas tarefas:</h2>
         <ul>
           {tasks.map((task) => (
-            <Task key={task.id} onToggleDoneTask={handleToggleDoneTask} {...task} />
+            <Task
+              key={task.id}
+              onDeleteTask={handleDeleteTask}
+              onToggleDoneTask={handleToggleDoneTask}
+              {...task}
+            />
           ))}
         </ul>
       </section>

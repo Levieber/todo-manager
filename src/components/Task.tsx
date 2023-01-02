@@ -4,9 +4,10 @@ import { TaskAttr } from "../types/global";
 
 interface TaskProps extends TaskAttr {
   onToggleDoneTask: (id: number) => void;
+  onDeleteTask: (id: number) => void;
 }
 
-export function Task({ id, title, done, onToggleDoneTask }: TaskProps) {
+export function Task({ id, title, done, onToggleDoneTask, onDeleteTask }: TaskProps) {
   return (
     <li className={styles.task}>
       <div className={styles.taskTitleAndCheck}>
@@ -27,7 +28,12 @@ export function Task({ id, title, done, onToggleDoneTask }: TaskProps) {
           <EditIcon size={25} />
         </button>
 
-        <button className={styles.deleteTaskBtn} aria-label={`Excluir a tarefa ${title}`} type="button">
+        <button
+          onClick={() => onDeleteTask(id)}
+          className={styles.deleteTaskBtn}
+          aria-label={`Excluir a tarefa ${title}`}
+          type="button"
+        >
           <DeleteIcon size={25} />
         </button>
       </div>
