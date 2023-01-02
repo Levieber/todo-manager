@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  padding: 1.25rem;
+
+  background-color: var(--blue-700);
+}
+
+.header strong {
+  text-align: center;
+  font-size: 1.25rem;
+}
