@@ -1,0 +1,51 @@
+:root {
+  --white: #ffffff;
+
+  --blue-300: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+
+  --gray-100: #f3f4f6;
+  --gray-300: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-700: #4b5563;
+  --gray-800: #1f2937;
+  --gray-900: #242425;
+
+  --red-500: #ef4444;
+}
+
+:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--blue-600);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+button {
+  font: 400 1rem "Inter", sans-serif;
+}
+
+body {
+  color: var(--gray-100);
+  background-color: var(--gray-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}

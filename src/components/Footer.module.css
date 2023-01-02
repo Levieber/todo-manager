@@ -1,0 +1,17 @@
+.footer {
+  display: flex;
+  justify-content: center;
+
+  padding: 1.25rem;
+
+  background-color: var(--blue-700);
+  color: var(--white);
+
+  font-size: 0.8rem;
+  letter-spacing: 4px;
+}
+
+.heart {
+  color: var(--red-500);
+  font-size: 1.25rem;
+}
