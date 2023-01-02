@@ -33,9 +33,9 @@ export function TaskList() {
   };
 
   const handleDeleteTask = (id: number) => {
-    const newTasks = tasks.filter((task) => task.id !== id);
+    const tasksWithoutDeleteOne = tasks.filter((task) => task.id !== id);
 
-    setTasks(newTasks);
+    setTasks(tasksWithoutDeleteOne);
   };
 
   const isTaskTitleEmpty = taskTitle.trim() === "";
