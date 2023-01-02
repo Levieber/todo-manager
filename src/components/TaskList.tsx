@@ -21,7 +21,7 @@ export function TaskList() {
     }
 
     const newTask = {
-      id: new Date().getTime(),
+      id: Date.now(),
       title: taskTitle,
       done: false,
     };
