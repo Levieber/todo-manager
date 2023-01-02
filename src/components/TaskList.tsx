@@ -1,10 +1,11 @@
 import styles from "./TaskList.module.css";
 import { useState } from "react";
 import { Task } from "./Task";
+import { TaskAttr } from "../types/global";
 
 export function TaskList() {
   const [taskTitle, setTaskTitle] = useState("");
-  const [tasks, setTasks] = useState<{ id: number; title: string; done: boolean }[]>([]);
+  const [tasks, setTasks] = useState<TaskAttr[]>([]);
 
   const handleCreateTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

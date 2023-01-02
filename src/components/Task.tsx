@@ -1,10 +1,8 @@
 import styles from "./Task.module.css";
 import { TrashSimple as DeleteIcon, PencilSimple as EditIcon } from "phosphor-react";
+import { TaskAttr } from "../types/global";
 
-interface TaskProps {
-  id: number;
-  title: string;
-  done: boolean;
+interface TaskProps extends TaskAttr {
   onToggleDoneTask: (id: number) => void;
 }
 
